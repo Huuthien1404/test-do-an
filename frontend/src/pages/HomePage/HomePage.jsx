@@ -113,7 +113,6 @@ const HomePage = () => {
             return res;
         }
         checkLoggedIn().then(res => {
-            console.log(res.data);
             localStorage.setItem('userInfo', JSON.stringify({
                 firstName: res.data.data.firstName,
                 lastName: res.data.data.lastName,
@@ -152,9 +151,9 @@ const HomePage = () => {
             return res;
         }
         userLogout().then(res => {
+            localStorage.removeItem("userInfo");
             if (res.data.message === "Sign out successfully") {
-                localStorage.removeItem("userInfo");
-                navigate("/landing-page");
+                navigate("/login");
             }
         })
             .catch(error => console.log(error))
