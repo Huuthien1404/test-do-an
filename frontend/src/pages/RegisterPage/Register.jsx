@@ -28,7 +28,7 @@ const defaultTheme = createTheme();
 export default function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [loadingRegisterPage, setLoadingRegisterPage] = React.useState(false);
+  const [loadingRegisterPage, setLoadingRegisterPage] = React.useState(true);
   const { isLoading, isError, isSuccess } = useSelector(
     (state) => state.userRegister
   );

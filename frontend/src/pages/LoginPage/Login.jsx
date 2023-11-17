@@ -32,7 +32,7 @@ export default function SignIn() {
   const navigate = useNavigate();
 
   const [show, setShow] = React.useState(false);
-  const [loadingLoginPage, setLoadingLoginPage] = React.useState(false);
+  const [loadingLoginPage, setLoadingLoginPage] = React.useState(true);
 
   const { isLoading, isError, isSuccess, userInfo } = useSelector(
     (state) => state.userLogin
