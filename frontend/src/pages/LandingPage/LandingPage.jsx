@@ -212,7 +212,7 @@ const LandingPage = () => {
               <div className="landing-page-image">
                 <img
                   onClick={(e) => e.preventDefault()}
-                  src="http://localhost:3000/LOGO1.PNG"
+                  src="https://test-do-an-fhw8.vercel.app/LOGO1.PNG"
                   alt="Learners-img"
                 />
               </div>
