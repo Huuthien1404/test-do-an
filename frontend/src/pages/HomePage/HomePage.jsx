@@ -144,6 +144,7 @@ const HomePage = () => {
         setShowScreen("edit profile");
     }
     const handleClickLogOut = () => {
+        console.log(document.cookie);
         Cookies.remove('accessToken', { path: '/', domain: 'webnc-2023.vercel.app' });
         Cookies.remove('refreshToken', { path: '/', domain: 'webnc-2023.vercel.app' });
         localStorage.removeItem("userInfo");
