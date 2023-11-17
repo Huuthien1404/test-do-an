@@ -126,7 +126,7 @@ const HomePage = () => {
             .catch(err => {
                 if (err.response.data.message === "Unauthorized") {
                     localStorage.removeItem("userInfo");
-                    navigate("/login");
+                    navigate("/landing-page");
                 }
             })
     }, [navigate]);
@@ -153,7 +153,7 @@ const HomePage = () => {
         userLogout().then(res => {
             localStorage.removeItem("userInfo");
             if (res.data.message === "Sign out successfully") {
-                navigate("/login");
+                navigate("/landing-page");
             }
         })
             .catch(error => console.log(error))
