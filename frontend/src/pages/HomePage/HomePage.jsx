@@ -127,7 +127,7 @@ const HomePage = () => {
             .catch(err => {
                 if (err.response.data.message === "Unauthorized") {
                     localStorage.removeItem("userInfo");
-                    navigate("/landing-page");
+                    navigate("/login");
                 }
             })
     }, [navigate]);

@@ -14,6 +14,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useNavigate } from "react-router-dom";
 const LandingPage = () => {
+  localStorage.removeItem("userInfo");
   const navigate = useNavigate();
   const [showSmallMenu, setShowSmallMenu] = useState(false);
   const [showContent, setShowContent] = useState("Home");
