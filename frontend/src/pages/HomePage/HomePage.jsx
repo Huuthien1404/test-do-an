@@ -11,6 +11,7 @@ import SendIcon from '@mui/icons-material/Send';
 import CloseIcon from '@mui/icons-material/Close';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import axios from "axios";
+import Cookies from "js-cookie";
 let courses_list = [
     {
         course_img: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/ddp/branding/illinois/iMBA+square.jpg?auto=format%2Ccompress%2C%20enhance&dpr=2&w=265&h=204&fit=crop&q=50",
@@ -143,21 +144,10 @@ const HomePage = () => {
         setShowScreen("edit profile");
     }
     const handleClickLogOut = () => {
-        async function userLogout() {
-            const res = await axios({
-                url: "https://webnc-2023.vercel.app/auth/sign-out",
-                method: "POST",
-                withCredentials: true,
-            });
-            return res;
-        }
-        userLogout().then(res => {
-            if (res.data.message === "Sign out successfully") {
-                localStorage.removeItem("userInfo");
-                navigate("/landing-page");
-            }
-        })
-            .catch(error => console.log(error))
+        Cookies.remove('accessToken', { path: '/', domain: 'webnc-2023.vercel.app' });
+        Cookies.remove('refreshToken', { path: '/', domain: 'webnc-2023.vercel.app' });
+        localStorage.removeItem("userInfo");
+        navigate("/landing-page");
         setAnchorEl(null);
     };
     const handleClickSaveChange = () => {
